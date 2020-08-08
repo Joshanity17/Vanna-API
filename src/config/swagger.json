@@ -1,0 +1,113 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "schemes": ["http", "https"],
+    "produces": ["application/json"],
+    "paths": {
+        "/users": {
+            "get": {
+                "tags": ["User"],
+                "summary": "Get all users",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "content": {
+                    "application/json": {}
+                }
+            }
+        },
+        "/getUser": {
+            "get": {
+                "tags": ["User"],
+                "summary": "Get user by ID",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "content": {
+                    "application/json": {}
+                },
+                "parameters": [{
+                    "name": "ID",
+                    "in": "query",
+                    "description": "Specifies the ID of the user",
+                    "required": true,
+                    "type": "string"
+                }]
+            }
+        },
+        "/saveUser": {
+            "post": {
+                "tags": ["User"],
+                "summary": "Get user by ID",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "content": {
+                    "application/json": {}
+                },
+                "parameters": [{
+                    "name": "User",
+                    "in": "body",
+                    "description": "Specifies the ID of the user",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "required": "ID",
+                        "properties": {
+                            "firstName": {
+                                "type": "string"
+                            },
+                            "lastName": {
+                                "type": "string"
+                            },
+                            "age": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }]
+            }
+        },
+        "/deleteUser": {
+            "delete": {
+                "tags": ["User"],
+                "summary": "Get user by ID",
+
+                "parameters": [{
+                    "name": "User",
+                    "in": "body",
+                    "description": "Specifies the ID of the user",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "required": "ID",
+                        "properties": {
+                            "ID": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }]
+            }
+        }
+    }
+}
