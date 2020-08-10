@@ -4,7 +4,7 @@ import parser from "body-parser";
 import compression from "compression";
 
 export const handleCors = (router: Router) => {
-    var whitelist = ['http://localhost:8000', 'http://localhost:9000'];
+    var whitelist = ['http://localhost:4200'];
     var corsOptions: CorsOptions = {
         origin: (origin: any, callback: any) => {
             if (whitelist.indexOf(origin) !== -1) {
