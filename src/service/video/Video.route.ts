@@ -6,5 +6,23 @@ export const VideoRoute = [
         path: "getAllVideo",
         controller: VideoController,
         action: "getAllVideo"
+    },
+    {
+        method: "get",
+        path: "streamVideo",
+        controller: VideoController,
+        action: "streamVideo"
+    },
+    {
+        method: "put",
+        path: "viewVideo",
+        controller: VideoController,
+        action: "viewVideo"
+    },
+    {
+        method: "get",
+        path: "getVideoViewCount",
+        controller: VideoController,
+        action: "getVideoViewCount"
     }
 ];
