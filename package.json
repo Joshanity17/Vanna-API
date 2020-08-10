@@ -43,6 +43,6 @@
    "scripts": {
       "start": "ts-node src/server.ts",
       "dev": "tsc-watch --onSuccess \"ts-node src/server.ts\"",
-      "debug": "tsc & node build/server.js"
+      "debug": "tsc & node dist/server.js"
    }
 }
