@@ -52,7 +52,6 @@ export class VideoController {
             response.statusCode = 200;
             response.send();
         } catch (e) {
-            console.log();
             response.statusCode = 500;
             response.send();
         }
@@ -63,4 +62,21 @@ export class VideoController {
         const video: Video = Database.videoSource.find((video) => video.id.toString() === parameter.id);
         response.send({ viewCount: video.viewCount })
     }
+
+    async logViewStatistic(request: Request, response: Response, next: NextFunction) {
+        try {
+            const parameter = request.body;
+            const video: Video = Database.videoSource.find((video) => video.id.toString() === parameter.id.toString());
+            video.viewHistory.push({
+                leftAt: parameter.time,
+                complete: parameter.complete
+            });
+            response.statusCode = 200;
+            response.send();
+        } catch (e) {
+            response.statusCode = 500;
+            response.send();
+        }
+    }
+
 }

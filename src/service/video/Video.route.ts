@@ -24,5 +24,11 @@ export const VideoRoute = [
         path: "getVideoViewCount",
         controller: VideoController,
         action: "getVideoViewCount"
+    },
+    {
+        method: "put",
+        path: "logViewStatistic",
+        controller: VideoController,
+        action: "logViewStatistic"
     }
 ];
