@@ -4,7 +4,7 @@ export class Video {
     public name: string;
     public path: string;
     public viewCount: number;
-    public viewHistory: { leftAt: number }[];
+    public viewHistory: { leftAt: number, complete: boolean }[];
 
     constructor(id: number, name: string, path: string) {
         this.id = id;
