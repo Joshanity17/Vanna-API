@@ -1,0 +1,12 @@
+runtime: nodejs12
+
+env_variables: 
+    IS_LOCAL: 'false'
+
+handlers:
+
+- url: /assets
+  static_dir: assets
+
+- url: /dist
+  static_dir: dist
