@@ -5,8 +5,8 @@ import routes from "./service/routes";
 import middleware from "./middleware";
 import errorHandlers from "./middleware/errorHandlers";
 import { applyMiddleware, applyRoutes } from "./utils";
-import { readFileSync, existsSync } from 'fs';
-import { createServer } from "https";
+import { existsSync } from 'fs';
+import { createServer } from "http";
 import { Database } from "./utils/Database";
 
 process.on("uncaughtException", e => {
@@ -44,14 +44,8 @@ if (eval(process.env.IS_LOCAL)) {
     console.log('Express server has started on port ' + process.env.PORT +
         '.Open http://localhost:' + process.env.PORT + '/api-docs/ to see results');
 } else {
-    const certOptions = {
-        key: readFileSync(__dirname + '/' + process.env.KEY, 'utf8'),
-        cert: readFileSync(__dirname + '/' + process.env.CERTIFICATE, 'utf8'),
-        requestCert: false,
-        rejectUnauthorized: false
-    };
 
-    createServer(certOptions, router).listen(process.env.PORT, () => {
+    createServer(router).listen(process.env.PORT, () => {
         console.log("Express server has started on port " + process.env.PORT);
     }).on('tlsClientError', (error: any) => {
         console.log(error);
