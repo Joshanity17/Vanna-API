@@ -10,7 +10,9 @@ export class Database {
 
     public static initialise() {
         this.videoSource = [];
-        const assetDirectory: string = join(__dirname, '../assets');
+        const assetDirectory: string = join(__dirname,
+            (eval(process.env.IS_LOCAL)) ? '../assets' : 'assets'
+        );
         readdir(assetDirectory, (err, files) => {
             if (err) return console.log('Unable to scan directory: ' + err);
 
