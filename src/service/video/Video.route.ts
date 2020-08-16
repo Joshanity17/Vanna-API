@@ -30,5 +30,11 @@ export const VideoRoute = [
         path: "logViewStatistic",
         controller: VideoController,
         action: "logViewStatistic"
+    },
+    {
+        method: "get",
+        path: "getMostViewedVideo",
+        controller: VideoController,
+        action: "getMostViewedVideo"
     }
 ];

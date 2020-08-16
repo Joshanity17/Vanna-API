@@ -79,4 +79,12 @@ export class VideoController {
         }
     }
 
+    async getMostViewedVideo(request: Request, response: Response, next: NextFunction) {
+        const video: Video = Database.videoSource.reduce((prev, curr) => {
+            return (prev.viewCount > curr.viewCount) ? prev : curr;
+        });
+        const mostViewedVideo = Math.max.apply(Math, Database.videoSource.map((video) => video.viewCount));
+        response.send(video)
+    }
+
 }
